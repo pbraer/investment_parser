@@ -108,11 +108,6 @@ def split_dataset(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.Data
 
     return train_df, val_df, test_df
 
-
-# =========================
-# TRAIN_REAL_ARTICLES
-# =========================
-
 def load_training_dataset(path: str | Path, sheet_name: str = "TRAIN_REAL_ARTICLES") -> pd.DataFrame:
     df = _load_tabular_file(path, sheet_name=sheet_name)
     _validate_columns(df, REQUIRED_COLUMNS)
@@ -145,11 +140,6 @@ def build_training_text(df: pd.DataFrame) -> list[str]:
         texts.append(" ".join([p for p in parts if p.strip()]))
 
     return texts
-
-
-# =========================
-# TRAIN_T5_DESCRIPTION
-# =========================
 
 def load_t5_description_dataset(
     path: str | Path,
